@@ -30,17 +30,27 @@ npm install @grpc/grpc-js @grpc/proto-loader
 
 ```
 
-使用proto-loader的方式来加载 .proto 文件
+1. 使用proto-loader的方式来加载 .proto 文件
 
-# 服务端
-## 运行服务
+2 .使用proto-tools的方式来加载 .proto 文件
+
 ```shell
+npm install -D grpc-tools
+
+protoc --js_out=import_style=commonjs,binary:./app/services --grpc_out=grpc_js:./app/services --plugin=protoc-gen-grpc=node_modules/grpc-tools/bin/grpc_node_plugin --proto_path=./protos mastertable.proto
+
+```
+
+## 服务端
+### 运行服务
+```shell
+npm i
 node server.js
 ```
 
-# 客户端
+## 客户端
 
-## 访问服务
+### 访问服务
 ```shell
 node client/new.js
 ```

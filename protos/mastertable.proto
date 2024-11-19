@@ -8,6 +8,7 @@ option java_package = "com.wclsolution.docpal.admin.remoteservice";
 option java_outer_classname = "MasterTableGrpcService";
 
 service MasterTableService {
+    rpc createTable (CreateTableReq) returns (CreateTableResp);
     rpc findByName (TableName) returns (TableEntity) {}
 }
 

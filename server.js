@@ -36,6 +36,23 @@ server.addService(mtProtos.org.example.services.MasterTableService.service, {
             "name": name
         };
         callback(null, resp);
+    },
+    createTable(call, callback) {
+        console.log("Create table service === " + JSON.stringify(call.request));
+        const masterTableReq = call.request;
+        console.log("Create table service === " + call.id);
+        console.log("Create table service === " + call.name);
+        console.log("Create table service === " + call.status);
+        console.log("Create table service === " + masterTableReq.getId());
+        console.log("Create table service === " + masterTableReq.getName());
+        console.log("Create table service === " + masterTableReq.getStatus());
+        const fields = masterTableReq.getFields();
+        try{
+            const resp = {"id": "1235", "name": "nsinsis"}
+            callback(null, {"code": 200, "data": resp})
+        } catch(error) {
+            handleError(error, callback);
+        }
     }
 });
 
