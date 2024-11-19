@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+import public "google/protobuf/timestamp.proto";
+
+package org.example.services;
+
+option java_package = "com.wclsolution.docpal.admin.remoteservice";
+option java_outer_classname = "MasterTableGrpcService";
+
+service MasterTableService {
+    rpc findByName (TableName) returns (TableEntity) {}
+}
+
+message CreateTableReq {
+    string id = 1;
+    string name = 2;
+    string status = 3;
+    repeated MTFieldInfo fields = 4;
+}
+
+message TableEntity {
+    string id = 1;
+    string name = 2;
+    string status = 3;
+}
+
+message MTFieldInfo {
+    string fieldName = 1;
+    string dataType = 2;
+    bool required = 3;
+    bool unique = 4;
+    bool primaryKey = 5;
+    string relationTable = 6;
+    string relationField = 7;
+    string displayField = 8;
+}
+
+message TableName {
+    string name = 1;
+}
+
+message CreateTableResp {
+    string id = 1;
+    string name = 2;
+    string status = 3;
+    repeated MTFieldInfo fields = 4;
+
+    string tableName = 5;
+    string description = 6;
+
+    string createdBy = 7;
+    string modifiedBy = 8;
+    google.protobuf.Timestamp createdDate = 9;
+    google.protobuf.Timestamp modifiedDate = 10;
+}
