@@ -6,6 +6,7 @@ Refer TO https://grpc.io/docs/languages/node/basics/#server
 
 
 # 介绍
+Create an API with gRPC and Node.js
 
 # 项目构建
 We will need a basic knowledge of:
@@ -29,6 +30,7 @@ npm install @grpc/grpc-js @grpc/proto-loader
 
 ```
 
+使用proto-loader的方式来加载 .proto 文件
 
 # 服务端
 ## 运行服务
